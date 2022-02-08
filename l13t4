@@ -1,0 +1,52 @@
+def main():
+    print("Contracts Manager");
+
+    #initialize friends list
+    friends =[]
+    file = open("contracts.txt","a");
+    file.close();
+    infile = open("contracts.txt","r");
+    line=infile.readline();
+    while line:
+        friends.append(line.rstrip("\n").split(","));
+        line=infile.readline();
+    infile.close();
+    choice = 0;
+    while choice !=4:
+        print("1) Add friend");
+        print("2) Look up a friend");
+        print("3) Display all friends");
+        print("4) Quit")
+        choice = eval(input());
+
+        if choice == 1:
+            print("Adding a friend");
+            name = input("Enter name: ");
+            email = input("enter email: ");
+            phone = input("Enter phone: ");
+            friends.append([name,email,phone]);
+        elif choice == 2:
+            print("Look up a friend");
+            keyword=input("enter search term:");
+            for friend in friends:
+                if keyword in friend:
+                    print(friend);
+        elif choice == 3:
+            print("Displaying all friends");
+            for i in range(len(friends)):
+                print(friends[i]);
+        elif choice == 4:
+            print("Quitting program");
+        else:
+            print("unknown response");
+    print(choice);
+    outfile = open("contracts.txt", "w");
+    for friend in friends:
+        outfile.write(",".join(friend)+"\n")
+    outfile.close();
+    print("written to file \"contracts.txt\" succesfully")
+main();
+
+# save data to external file
+print("program terminated");
+
