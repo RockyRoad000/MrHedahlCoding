@@ -3,7 +3,7 @@ import random
 import time
 colors = ['red', 'purple', 'blue', 'green', 'orange', 'yellow']
 t = turtle.Pen()
-turtle.speed(speed='fastest')
+t.speed(speed='fastest')
 turtle.bgcolor('black')
 for x in range(360):
     t.pencolor(colors[x%6])
