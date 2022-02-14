@@ -14,13 +14,6 @@ turtle.shape("turtle");
 
 while 0 == 0:
 
-    if r >= 254:
-        mode = 1;
-    elif g >= 254:
-        mode = 2;
-    elif b >= 254:
-        mode = 3;
-
     if mode == 0:
         mode = 1;
     elif mode == 1:
@@ -32,6 +25,14 @@ while 0 == 0:
     elif mode == 3:
         b-=colorspeed;
         r+=colorspeed;
+       
+    
+    if r >= 255-colorspeed:
+        mode = 1;
+    elif g >= 255-colorspeed:
+        mode = 2;
+    elif b >= 255-colorspeed:
+        mode = 3;
 
     turtle.color(r,g,b);
 
